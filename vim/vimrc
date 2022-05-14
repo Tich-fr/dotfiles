@@ -1,0 +1,40 @@
+set nocompatible
+
+" syntax
+syntax on
+syntax enable
+
+" indentation
+set modelines=0
+set smartindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
+" Mode stuff
+set encoding=utf-8
+set scrolloff=3
+set ai
+set autoindent
+set autoread
+set si
+set showmode
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest
+set ttyfast
+set ruler
+set foldmethod=marker
+set number relativenumber
+
+" movement
+set smartcase
+set showmatch
+set mouse=a
+
+" indent guides
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2

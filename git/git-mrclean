@@ -1,0 +1,13 @@
+#!/bin/bash
+if [[ $# < 1 ]];
+then
+echo "Missing remote name to prune against"
+else
+git remote prune $1 --dry-run | grep "\[would prune\]" | sed "s/^ \* \[would prune\] ${1}\///" > /tmp/mrclean.git.txt
+vim /tmp/mrclean.git.txt
+while read -r line; do
+    echo " - $line: "
+    git branch -r -D $1/$line
+    git branch -D $line
+done < /tmp/mrclean.git.txt
+fi

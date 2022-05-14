@@ -1,0 +1,128 @@
+{
+  // General
+  "editor.tabSize": 2,
+  "editor.accessibilitySupport": "off",
+  "editor.copyWithSyntaxHighlighting": false,
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.formatOnSave": false,
+
+  // Clangd has neat features but takes 50% CPU
+  "clangd.arguments": [
+    "--log=error",
+    "--clang-tidy",
+    "--fallback-style=LLVM",
+    "--completion-style=detailed",
+    "--inlay-hints",
+    "--header-insertion=never",
+    "--background-index",
+    "--compile-commands-dir=${workspaceFolder}/BUILD/"],
+
+  // Formatting
+  "clang-format.assumeFilename": "${workspaceFolder}/.clang-format",
+  "clang-format.language.apex.enable": false,
+  "clang-format.language.java.enable": false,
+  "clang-format.language.javascript.enable": false,
+  "clang-format.language.objective-c.enable": false,
+  "clang-format.language.objective-cpp.enable": false,
+  "clang-format.language.proto.enable": false,
+  "clang-format.language.typescript.enable": false,
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+  },
+
+  // Misc
+  "explorer.autoReveal": "focusNoScroll",
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.enableTrash": false,
+
+  "telemetry.enableTelemetry": false,
+  "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.scrollback": 5000,
+  "terminal.integrated.fontFamily": "SauceCodePro Nerd Font Mono",
+  "window.autoDetectHighContrast": false,
+  "window.menuBarVisibility": "compact",
+  "security.workspace.trust.enabled": false,
+  "gitlens.codeLens.enabled": false,
+
+  "search.exclude": {
+    "**/BUILD": true,
+    "**/build": true,
+    "**/INSTALL": true,
+    "**/install": true
+  },
+
+  // CMake
+  // "cmake.generator": "Ninja",
+  // "cmake.configureOnEdit": false,
+  // "cmake.configureOnOpen": false,
+  // "cmake.buildDirectory": "${workspaceFolder}/BUILD",
+  // "cmake.copyCompileCommands": "${workspaceFolder}/BUILD/compile_commands.json",
+  // "cmake.setBuildTypeOnMultiConfig": true,
+  // "cmake.statusbar.visibility": "compact",
+
+  // C_CPP
+  "C_Cpp.updateChannel": "Insiders",
+  "C_Cpp.default.cppStandard": "c++11",
+  "C_Cpp.default.includePath": [
+    "${default}",
+    "${workspaceFolder}/**"
+  ],
+  "C_Cpp.default.compileCommands": "${workspaceFolder}/BUILD/compile_commands.json",
+  "C_Cpp.formatting": "Disabled",
+  "C_Cpp.clang_format_sortIncludes": true,
+
+  // Clang-Tidy
+  "clang-tidy.buildPath": "${workspaceFolder}/BUILD",
+  "clang-tidy.checks": [
+    "-*",
+    "cppcoreguidelines-*",
+    "-cppcoreguidelines-init-variables",
+    "bugprone-*",
+    "clang-analyzer-*",
+    "misc-*",
+    "modernize-*",
+    "-modernize-use-trailing-return-type",
+    "mpi-*",
+    "openmp-*",
+    "performance-*",
+    "portability-*",
+    "readability-*",
+  ],
+  "clang-tidy.lintOnSave": false,
+  "editor.minimap.enabled": false,
+  "redhat.telemetry.enabled": false,
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "editor.find.autoFindInSelection": "multiline",
+  "editor.find.cursorMoveOnType": false,
+  "editor.find.seedSearchStringFromSelection": "selection",
+  "extensions.ignoreRecommendations": true,
+  "files.autoSave": "onFocusChange",
+  "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
+  "gitlens.blame.ignoreWhitespace": true,
+  "gitlens.showWhatsNewAfterUpgrades": false,
+  "update.showReleaseNotes": false,
+  "update.mode": "manual",
+  "extensions.autoUpdate": false,
+  "references.preferredLocation": "view",
+  "editor.guides.bracketPairs": "active",
+  "xml.format.closingBracketNewLine": true,
+  "workbench.colorTheme": "One Dark Pro Flat",
+  "restructuredtext.linter.run": "onSave",
+  "files.associations": {
+    "*.pvsm": "xml",
+    "*.vt*": "xml",
+    "*.series": "json"
+  },
+  "sonarlint.rules": {
+    "cpp:S6004": {
+      "level": "off"
+    }
+  },
+  "window.zoomLevel": 1,
+}

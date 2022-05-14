@@ -1,0 +1,93 @@
+{
+  "vendor": {
+    "Project": "VTK"
+  },
+  "version": 1,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 19,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "Debug",
+      "displayName": "Debug config",
+      "description": "Simple Debug build using Ninja generator",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": {
+          "type": "STRING",
+          "value": "Debug"
+        },
+        "VTK_DEBUG_LEAKS": {
+          "type": "BOOL",
+          "value": "ON"
+        },
+        "CMAKE_CXX_FLAGS": {
+          "type": "STRING",
+          "value": "-fdiagnostics-color=always"
+        },
+        "CMAKE_EXPORT_COMPILE_COMMANDS": {
+          "type": "BOOL",
+          "value": "ON"
+        }
+      }
+    },
+    {
+      "name": "Dev",
+      "inherits": "Debug",
+      "displayName": "Dev config",
+      "binaryDir": "${sourceDir}/build-dev",
+      "description": "Fully featured build in debug mode and testing activated",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "VTK_SMP_IMPLEMENTATION_TYPE": {
+          "type": "STRING",
+          "value": "STDThread"
+        },
+        "CMAKE_CXX_FLAGS": {
+          "type": "STRING",
+          "value": "-Wall -Wextra -Wshadow -Woverloaded-virtual -Wno-deprecated -Wno-strict-overflow -Wno-array-bounds -Wunreachable-code -fdiagnostics-color=always"
+        },
+        "CMAKE_C_FLAGS": {
+          "type": "STRING",
+          "value": "-Wall -Wextra -Wshadow"
+        },
+        "VTK_BUILD_TESTING": {
+          "type": "STRING",
+          "value": "ON"
+        },
+        "VTK_LEGACY_REMOVE": {
+          "type": "STRING",
+          "value": "ON"
+        }
+      }
+    },
+    {
+      "name": "Mini",
+      "displayName": "Minimalist",
+      "description": "Minimalist conf in release mode",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": {
+          "type": "STRING",
+          "value": "Release"
+        },
+        "VTK_DEBUG_LEAKS": {
+          "type": "BOOL",
+          "value": "OFF"
+        },
+        "CMAKE_CXX_FLAGS": {
+          "type": "STRING",
+          "value": "-fdiagnostics-color=always"
+        },
+        "CMAKE_EXPORT_COMPILE_COMMANDS": {
+          "type": "BOOL",
+          "value": "ON"
+        }
+      }
+    }
+  ]
+}

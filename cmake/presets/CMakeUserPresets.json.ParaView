@@ -1,0 +1,141 @@
+{
+  "vendor": {
+    "Project": "ParaView"
+  },
+  "version": 1,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 19,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "Debug",
+      "displayName": "Debug config",
+      "description": "Debug build using Ninja generator",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": {
+          "type": "STRING",
+          "value": "Debug"
+        },
+        "PARAVIEW_PLUGINS_DEFAULT": {
+          "type": "BOOL",
+          "value": "OFF"
+        },
+        "PARAVIEW_USE_VTKM": {
+          "type": "BOOL",
+          "value": "OFF"
+        },
+        "PARAVIEW_USE_PYTHON": {
+          "type": "BOOL",
+          "value": "ON"
+        },
+        "VTK_DEBUG_LEAKS": {
+          "type": "BOOL",
+          "value": "ON"
+        },
+        "CMAKE_CXX_FLAGS": {
+          "type": "STRING",
+          "value": "-fdiagnostics-color=always"
+        },
+        "CMAKE_EXPORT_COMPILE_COMMANDS": {
+          "type": "BOOL",
+          "value": "ON"
+        }
+      }
+    },
+    {
+      "name": "Dev",
+      "inherits": "Debug",
+      "displayName": "Dev config",
+      "binaryDir": "${sourceDir}/build",
+      "description": "Fully featured build in debug mode and testing activated",
+      "generator": "Ninja",
+      "cacheVariables" : {
+        "PARAVIEW_BUILD_TESTING": {
+          "type": "STRING",
+          "value": "WANT"
+        },
+        "PARAVIEW_BUILD_VTK_TESTING": {
+          "type": "BOOL",
+          "value": "ON"
+        },
+        "PARAVIEW_USE_VTKM": {
+          "type": "BOOL",
+          "value": "OFF"
+        },
+        "PARAVIEW_USE_MPI": {
+          "type": "BOOL",
+          "value": "ON"
+        },
+        "VTK_SMP_IMPLEMENTATION_TYPE": {
+          "type": "STRING",
+          "value": "STDThread"
+        },
+        "CMAKE_CXX_FLAGS": {
+          "type": "STRING",
+          "value": "-Wall -Wextra -Wshadow -Woverloaded-virtual -Wno-deprecated -Wno-strict-overflow -Wno-array-bounds -Wunreachable-code -fdiagnostics-color=always"
+        },
+        "CMAKE_C_FLAGS": {
+          "type": "STRING",
+          "value": "-Wall -Wextra -Wshadow"
+        },
+        "PARAVIEW_BUILD_LEGACY_REMOVE": {
+          "type": "BOOL",
+          "value": "ON"
+        },
+        "PARAVIEW_PLUGINS_DEFAULT": {
+          "type": "BOOL",
+          "value": "ON"
+        }
+      }
+    },
+    {
+      "name": "Mini",
+      "displayName": "Minimalist",
+      "description": "Minimalist conf in release mode",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables" : {
+        "CMAKE_BUILD_TYPE": {
+          "type": "STRING",
+          "value": "Release"
+        },
+        "PARAVIEW_PLUGINS_DEFAULT": {
+          "type": "BOOL",
+          "value": "OFF"
+        },
+        "PARAVIEW_USE_VTKM": {
+          "type": "BOOL",
+          "value": "OFF"
+        },
+        "VTK_DEBUG_LEAKS": {
+          "type": "BOOL",
+          "value": "OFF"
+        },
+        "PARAVIEW_ENABLE_EMBEDDED_DOCUMENTATION": {
+          "type": "BOOL",
+          "value": "OFF"
+        },
+        "PARAVIEW_ENABLE_XDMF2": {
+          "type": "BOOL",
+          "value": "OFF"
+        },
+        "PARAVIEW_USE_QTHELP": {
+          "type": "BOOL",
+          "value": "OFF"
+        },
+        "CMAKE_CXX_FLAGS": {
+          "type": "STRING",
+          "value": "-fdiagnostics-color=always"
+        },
+        "CMAKE_EXPORT_COMPILE_COMMANDS": {
+          "type": "BOOL",
+          "value": "ON"
+        }
+      }
+    }
+  ]
+}

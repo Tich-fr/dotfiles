@@ -1,6 +1,7 @@
-export ZSH="$ZDOTDIR/omz"
-export PATH="${PATH}:${HOME}/.local/bin"
-export RIPGREP_CONFIG_PATH="${HOME}/.config/rg/config"
+export ZDOTDIR=~/.config/zsh
+export PATH="${PATH}:~/.local/bin"
+export RIPGREP_CONFIG_PATH="~/.config/rg/config"
+export EDITOR=vim
 
 #determines search program for fzf
 if type rg &> /dev/null; then

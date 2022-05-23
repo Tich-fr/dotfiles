@@ -80,15 +80,12 @@
   "references.preferredLocation": "view",
   "workbench.startupEditor": "none",
 
-  // Options not used anymore since I switched on clangd totally
-  // // C_CPP
-  // "C_Cpp.updateChannel": "Insiders",
-  // "C_Cpp.default.cppStandard": "c++11",
-  // "C_Cpp.default.includePath": [
-  //   "${default}",
-  //   "${workspaceFolder}/**"
-  // ],
-  // "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
-  // "C_Cpp.formatting": "Disabled",
-  // "C_Cpp.clang_format_sortIncludes": true,
+  // Installing C_Cpp because it provides the $gcc problem matchers for build tasks,
+  // but I don't use other features
+  "C_Cpp.intelliSenseEngine": "Disabled",
+  "C_Cpp.autocomplete": "Disabled",
+  "C_Cpp.vcpkg.enabled": false,
+  "C_Cpp.workspaceParsingPriority": "low",
+  "C_Cpp.default.cppStandard": "c++11",
+  "C_Cpp.formatting": "Disabled",
 }

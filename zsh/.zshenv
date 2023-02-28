@@ -1,7 +1,12 @@
 export ZDOTDIR=~/.config/zsh
-export PATH="${PATH}:~/.local/bin"
-export RIPGREP_CONFIG_PATH="~/.config/rg/config"
+export CCACHE_DIR=~/.config/ccache
+export RIPGREP_CONFIG_PATH=~/.config/rg/config
+
+export PATH=$PATH:/home/timothee/.local/bin
 export EDITOR=vim
+
+export CC=clang
+export CXX=clang++
 
 #determines search program for fzf
 if type rg &> /dev/null; then

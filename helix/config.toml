@@ -1,0 +1,30 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+mouse = true
+cursorline = true
+auto-format = false
+
+[editor.lsp]
+display-messages = true
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+
+# [keys.normal]
+# C-s = [
+    # "save_selection",
+    # "select_all",   
+    # ":pipe sed 's/[ \t]*$//'",
+    # ":pipe awk '/^\\s*$/ {b=b $0 \"\\n\"; next;} {printf \"%s\",b; b=\"\"; print;}'",
+    # "collapse_selection",
+    # "jump_backward",
+    # "commit_undo_checkpoint",
+    # ":write",
+# ]

@@ -7,11 +7,11 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "search.exclude": {
+    "**/.cache": true,
     "**/build": true,
-    "**/INSTALL": true,
     "**/install": true
   },
-  "workbench.colorTheme": "One Dark Pro Flat",
+  "workbench.colorTheme": "One Dark Pro Darker",
 
   // Clangd has neat features
   "clangd.arguments": [
@@ -19,14 +19,10 @@
     "--clang-tidy",
     "--fallback-style=LLVM",
     "--completion-style=detailed",
-    "--inlay-hints",
     "--header-insertion=never",
-    "--background-index"],
+    "--background-index"
+  ],
 
-  // Formatting
-  "[cpp]": {
-    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
-  },
   "[xml]": {
     "editor.defaultFormatter": "redhat.vscode-xml"
   },
@@ -42,7 +38,8 @@
   "files.associations": {
     "*.pvsm": "xml",
     "*.vt*": "xml",
-    "*.series": "json"
+    "*.series": "json",
+    "*.ui": "xml"
   },
 
   // Misc
@@ -58,15 +55,17 @@
   "terminal.integrated.fontFamily": "SauceCodePro Nerd Font Mono",
 
   "window.autoDetectHighContrast": false,
-  "window.zoomLevel": 1,
-  "window.menuBarVisibility": "compact",
 
   "editor.accessibilitySupport": "off",
   "editor.acceptSuggestionOnEnter": "off",
   "editor.minimap.enabled": false,
   "editor.find.autoFindInSelection": "multiline",
   "editor.find.seedSearchStringFromSelection": "selection",
+
   "editor.formatOnSave": false,
+  // "[cpp]": {
+  //   "editor.formatOnSave": true,
+  // },
 
   "extensions.ignoreRecommendations": true,
   "update.showReleaseNotes": false,
@@ -79,13 +78,18 @@
 
   "references.preferredLocation": "view",
   "workbench.startupEditor": "none",
+  "editor.inlayHints.enabled": false,
 
-  // Installing C_Cpp because it provides the $gcc problem matchers for build tasks,
-  // but I don't use other features
-  "C_Cpp.intelliSenseEngine": "Disabled",
-  "C_Cpp.autocomplete": "Disabled",
-  "C_Cpp.vcpkg.enabled": false,
-  "C_Cpp.workspaceParsingPriority": "low",
-  "C_Cpp.default.cppStandard": "c++11",
-  "C_Cpp.formatting": "Disabled",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [{
+        "scope": [
+            "support.constant",
+            "variable.other.constant",
+            "variable.other.enummember"
+        ],
+        "settings": {
+            "fontStyle": "bold"
+        }
+    }]
+}
 }

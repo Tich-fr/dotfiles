@@ -19,11 +19,12 @@ compinit
 
 # ---------------------------------------------
 # OPTIONS
-setopt no_flow_control
+unsetopt flow_control
 setopt append_history
 setopt rm_star_silent
 unsetopt beep
 setopt autocd extendedglob
+unsetopt nomatch
 bindkey -v
 
 # ---------------------------------------------
@@ -51,3 +52,20 @@ function chpwd() {
     ls
 }
 
+function gfd() {
+    preview="git diff $@ --color=always -- {-1}"
+    git diff $@ --name-only | fzf --ansi --preview $preview
+}
+
+function gfl() {
+    preview="git --no-pager show --color=always {+1}"
+    git log --oneline $@..HEAD | fzf --ansi --preview $preview
+}
+
+function gfs() {
+    preview="git diff -- $@ | sed -n '/^{}/,/^@@/\{//!p;\}'"
+    # WORKING COMMAND: git diff Code/User/settings.json | sed -n '/^@@ -19,14 +19,10 @@/,/^@@/{//!p;}'
+    git diff $@ | grep '^@@.*@@$' | fzf --multi --ansi --preview $preview
+}
+
+source /home/timothee/.config/broot/launcher/bash/br
